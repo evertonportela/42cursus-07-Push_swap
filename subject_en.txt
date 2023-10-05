@@ -1,0 +1,164 @@
+Parte obrigatória
+
+As regras
+
+• Você tem 2 pilhas chamadas A e B
+• No inicio:
+◦ A pilha A contém uma quantidade aleatória de números negativos e/ou positivos que não podem ser duplicados.
+◦ A pilha B está vazia.
+
+• O objetivo é classificar os números em ordem crescente na pilha A. Para isso você tem à sua disposição as seguintes operações:
+
+SA (swap a): Troque os 2 primeiros elementos no topo da pilha a.
+Não faça nada se houver apenas um ou nenhum elemento.
+
+SB (swap b): Troque os 2 primeiros elementos no topo da pilha b.
+Não faça nada se houver apenas um ou nenhum elemento.
+
+SS: SA e SB ao mesmo tempo.
+
+PA (pressione a): Pegue o primeiro elemento no topo de b e coloque-o no topo de a.
+Não faça nada se b estiver vazio.
+
+PB (pressione b): Pegue o primeiro elemento no topo de a e coloque-o no topo de b.
+Não faça nada se a estiver vazio.
+
+RA (girar a): Desloca todos os elementos da pilha a em 1.
+O primeiro elemento se torna o último.
+
+RB (girar b): Desloca todos os elementos da pilha b em 1.
+O primeiro elemento se torna o último.
+
+RR: ra e rb ao mesmo tempo.
+
+RRA (rotação reversa a): Desloca todos os elementos da pilha a em 1.
+O último elemento se torna o primeiro.
+
+RRB (rotação reversa b): Desloca todos os elementos da pilha b em 1.
+O último elemento se torna o primeiro.
+
+RRR RRA e RRB ao mesmo tempo.
+
+Para ilustrar o efeito de algumas destas instruções, vamos ordenar uma lista aleatória de inteiros.
+Neste exemplo, consideraremos que ambas as pilhas crescem da direita.
+
+Init a and b:
+2
+1
+3
+6
+5
+8
+_ _
+a b
+------
+
+Exec sa:
+1
+2
+3
+6
+5
+8
+_ _
+a b
+-----
+
+Exec pb pb pb:
+6 3
+5 2
+8 1
+_ _
+a b
+
+Exec ra rb (equiv. to rr):
+5 2
+8 1
+6 3
+_ _
+a b
+------
+
+Exec rra rrb (equiv. to rrr):
+6 3
+5 2
+8 1
+_ _
+a b
+
+Exec pa pa pa:
+1
+2
+3
+5
+6
+8
+_ _
+a b
+
+----------------------------------------------------------------------------
+O programa "push_swap"
+
+Nome do programa: push_swap
+
+Entregar arquivos: Makefile, *.h, *.c
+Makefile: NAME, all, clean, fclean, re
+
+Argumentos: stack a: uma lista de inteiros
+
+Funções externas: 
+	• read, write, malloc, free
+	• ft_printf e qualquer equivalente que VOCÊ codificou
+
+Libft autorizado: Sim
+Descrição: Classificar pilhas
+
+--------------------------------------------------------------------------
+Seu projeto deve obedecer às seguintes regras:
+
+• Você terá que entregar um Makefile que irá compilar seus arquivos fonte. Não deve
+vincular novamente.
+
+• Variáveis globais são proibidas.
+
+• Você tem que escrever um programa chamado push_swap que receba como argumento a pilha
+a formatado como uma lista de números inteiros. O primeiro argumento deve estar no topo do pilha (tenha cuidado com a ordem).
+
+• O programa deve exibir a menor lista possível de instruções para ordenar a pilha a, o menor número estando no topo.
+
+• As instruções devem ser separadas por ’\n’ e nada mais.
+
+• O objetivo é ordenar a pilha com o menor número possível de operações. Durante o processo de avaliação, o número de instruções encontradas pelo seu programa será comparado com um limite: o número máximo de operações toleradas. Se o seu programa exibir uma lista mais longa ou se os números não estiverem classificados corretamente, sua nota será 0.
+
+• Se nenhum parâmetro for especificado, o programa não deverá exibir nada e retornar o prompt.
+
+• Em caso de erro deverá exibir “Error” seguido de ’\n’ no erro padrão.
+Os erros incluem, por exemplo: alguns argumentos não são números inteiros, alguns argumentos são maiores que um número inteiro e/ou há duplicatas
+
+$>./push_swap 2 1 3 6 5 8
+sa
+pb
+pb
+pb
+sa
+pa
+pa
+pa
+$>./push_swap 0 one 2 3
+Error
+$>
+
+Durante o processo de avaliação, um binário será fornecido para verificar adequadamente o seu programa.
+
+Funcionará da seguinte forma:
+
+$>ARG="4 67 3 87 23"; ./push_swap $ARG | wc -l
+6
+$>ARG="4 67 3 87 23"; ./push_swap $ARG | ./checker_OS $ARG
+OK
+$>
+
+Se o programa checker_OS exibir "KO", significa que seu push_swap criou uma lista de instruções que não classifica os números.
+
+O programa checker_OS está disponível nos recursos do projeto na intranet.
+Você pode encontrar uma descrição de como funciona na parte bônus deste documento.
