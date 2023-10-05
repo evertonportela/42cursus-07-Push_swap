@@ -6,7 +6,7 @@
 #    By: evportel <evportel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/04 22:04:00 by evportel          #+#    #+#              #
-#    Updated: 2023/10/04 22:07:49 by evportel         ###   ########.fr        #
+#    Updated: 2023/10/04 22:08:46 by evportel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,3 +55,5 @@ fclean:		clean
 	@printf "${RED}${NAME} removed!${RESET}\n"
 
 re:			fclean ${NAME}
+
+.PHONY: all bonus clean fclean re
