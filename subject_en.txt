@@ -121,8 +121,7 @@ vincular novamente.
 
 • Variáveis globais são proibidas.
 
-• Você tem que escrever um programa chamado push_swap que receba como argumento a pilha
-a formatado como uma lista de números inteiros. O primeiro argumento deve estar no topo do pilha (tenha cuidado com a ordem).
+• Você tem que escrever um programa chamado push_swap que receba como argumento a pilha A formatado como uma lista de números inteiros. O primeiro argumento deve estar no topo do pilha (tenha cuidado com a ordem).
 
 • O programa deve exibir a menor lista possível de instruções para ordenar a pilha a, o menor número estando no topo.
 
