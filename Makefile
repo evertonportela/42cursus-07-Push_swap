@@ -6,7 +6,7 @@
 #    By: evportel <evportel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/04 22:04:00 by evportel          #+#    #+#              #
-#    Updated: 2023/10/05 22:28:16 by evportel         ###   ########.fr        #
+#    Updated: 2023/10/05 22:41:22 by evportel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,5 +59,12 @@ fclean:		clean
 			@printf "${RED}${NAME} removed!${RESET}\n"
 
 re:			fclean all
+
+# TEST RULES ***************************************************************** #
+norm:
+			norminette
+
+valgrind:	
+			valgrind -s --leak-check=yes ./push_swap 10 9 8 7 6 5 4 3 2 1 0
 
 .PHONY: all bonus clean fclean re
