@@ -6,7 +6,7 @@
 /*   By: evportel <evportel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 21:48:22 by evportel          #+#    #+#             */
-/*   Updated: 2023/10/05 22:31:23 by evportel         ###   ########.fr       */
+/*   Updated: 2023/10/05 22:42:14 by evportel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ int	main(int argc, char **argv)
 		index = 0;
 		while (index < (argc - 1))
 			ft_printf("é número: %d\n", stack[index++]);
+
+		free(stack);
 		
 	}
 	return (EXIT_SUCCESS);
