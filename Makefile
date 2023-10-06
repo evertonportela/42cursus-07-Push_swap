@@ -6,7 +6,7 @@
 #    By: evportel <evportel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/04 22:04:00 by evportel          #+#    #+#              #
-#    Updated: 2023/10/04 22:08:46 by evportel         ###   ########.fr        #
+#    Updated: 2023/10/05 22:28:16 by evportel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,37 +23,41 @@ RESET	=	\033[0m
 NAME	=	push_swap
 CC		=	cc
 FLAGS	=	-Wall -Wextra -Werror
+LIBFT	= -L ./libft -lft
 
-SRC		=	main.c
+SRC		=	main.c	ft_receive_entries.c
 
 OBJ		=	${SRC:.c=.o}
 
-HEADER	=	push_swap.h
+HEADER	=	-I ./
 
 # RULES MANDATORY ************************************************************ #
-all:		${NAME}
-
-${NAME}:	${OBJ}
-	@printf "${BLUE}All objects created!${RESET}\n"
-	@cc ${FLAGS} -Iinclude ${OBJ} -o $@
-	@printf "${GREEN}${NAME} created!${RESET}\n"
-	@exit 0
-
 %.o: %.c
-	@printf "${YELLOW}Compiling: ${CYAN}${notdir $<}${RESET}\n"
-	@cc ${FLAGS} -Iinclude -c $< -o $@
+			@printf "${YELLOW}Compiling: ${CYAN}${notdir $<}${RESET}\n"
+			@${CC} ${FLAGS} ${HEADER} -c $< -o $@
+
+mylibft:
+			@make -j8 -C ./libft/ --no-print-directory
+
+${NAME}:	${OBJ} | mylibft
+			@printf "${BLUE}All objects created!${RESET}\n"
+			@${CC} ${FLAGS} -o ${NAME} ${HEADER} ${OBJ} ${LIBFT}
+			@printf "${GREEN}${NAME} created!${RESET}\n"
+			@exit 0
+
+all:		${NAME}
 
 # CLEANING RULES ************************************************************* #
 clean:
-	@rm -fr ${OBJ}
-#	@rm -fr ${OBJ_BONUS}
-	@printf "${MAGENTA}All objects removed!${RESET}\n"
+			rm -fr ${OBJ}
+			@make clean -C ./libft/ --no-print-directory
+			@printf "${MAGENTA}All objects removed!${RESET}\n"
 
 fclean:		clean
-	@rm -fr ${NAME}
-#	@rm -fr ${NAME_BONUS}
-	@printf "${RED}${NAME} removed!${RESET}\n"
+			rm -fr ${NAME}
+			@make fclean -C ./libft/ --no-print-directory
+			@printf "${RED}${NAME} removed!${RESET}\n"
 
-re:			fclean ${NAME}
+re:			fclean all
 
 .PHONY: all bonus clean fclean re
