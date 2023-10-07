@@ -6,7 +6,7 @@
 #    By: evportel <evportel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/04 22:04:00 by evportel          #+#    #+#              #
-#    Updated: 2023/10/06 21:33:39 by evportel         ###   ########.fr        #
+#    Updated: 2023/10/06 22:15:11 by evportel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,9 @@ CC			=	cc
 FLAGS		=	-Wall -Wextra -Werror
 LIBFT		=	-L ./libft -lft
 
-SRC			=	main.c	ft_receive_entries.c
+SRC			=	${addprefix sources/, main.c} \
+				${addprefix sources/, ft_receive_entries.c} \
+				${addprefix sources/, ft_swap_a.c}
 
 OBJ			=	${SRC:.c=.o}
 HEADER		=	-I ./
@@ -52,13 +54,14 @@ ${NAME}:	${OBJ} | mylibft
 # CLEANING RULES ************************************************************* #
 clean:
 			rm -fr ${OBJ}
+			@printf "${MAGENTA}${NAME} project objects removed!${RESET}\n"
 			@make clean -C ./libft/ --no-print-directory
-			@printf "${MAGENTA}All objects removed!${RESET}\n"
+			@printf "${MAGENTA}Libft objects removed!${RESET}\n"
 
 fclean:		clean
 			rm -fr ${NAME}
 			@make fclean -C ./libft/ --no-print-directory
-			@printf "${RED}${NAME} removed!${RESET}\n"
+			@printf "${RED}Executable ${NAME} removed!${RESET}\n"
 
 re:			fclean ${NAME}
 
@@ -67,6 +70,6 @@ norm:
 			norminette
 
 valgrind:	
-			valgrind -s --leak-check=yes ./push_swap 10 9 8 7 6 5 4 3 2 1 0
+			valgrind -s --leak-check=yes ./push_swap -10 -9
 
 .PHONY: all bonus clean fclean re
