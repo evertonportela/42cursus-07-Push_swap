@@ -6,7 +6,7 @@
 /*   By: evportel <evportel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 20:30:58 by evportel          #+#    #+#             */
-/*   Updated: 2023/10/06 22:11:37 by evportel         ###   ########.fr       */
+/*   Updated: 2023/10/07 18:07:11 by evportel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,10 @@
 # include "stdlib.h"			/* EXIT_SUCCESS */
 # include "unistd.h"			/* malloc, free */
 
-int	ft_atoi(const char *nptr);
-int	*ft_receive_entries(int argc, char **argv);
-int	*ft_swap_a(int *stack, int size);
+int		ft_atoi(const char *nptr);
+int		*ft_receive_entries(int argc, char **argv);
+int		*ft_swap_sa_sb(char *operation, int *stack, int size);
+void	ft_swap_ss(int *stack_a, int *stack_b, int size);
+void	ft_print_stack(int *stack, int size);
 
 #endif

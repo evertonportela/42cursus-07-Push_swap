@@ -6,7 +6,7 @@
 #    By: evportel <evportel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/04 22:04:00 by evportel          #+#    #+#              #
-#    Updated: 2023/10/06 22:15:11 by evportel         ###   ########.fr        #
+#    Updated: 2023/10/07 18:01:26 by evportel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,9 +25,11 @@ CC			=	cc
 FLAGS		=	-Wall -Wextra -Werror
 LIBFT		=	-L ./libft -lft
 
-SRC			=	${addprefix sources/, main.c} \
+SRC			=	${addprefix sources/, ft_print_stack.c} \
 				${addprefix sources/, ft_receive_entries.c} \
-				${addprefix sources/, ft_swap_a.c}
+				${addprefix sources/, ft_swap_sa_sb.c} \
+				${addprefix sources/, ft_swap_ss.c} \
+				${addprefix sources/, main.c}
 
 OBJ			=	${SRC:.c=.o}
 HEADER		=	-I ./
