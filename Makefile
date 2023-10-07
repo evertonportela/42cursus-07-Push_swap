@@ -6,11 +6,11 @@
 #    By: evportel <evportel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/04 22:04:00 by evportel          #+#    #+#              #
-#    Updated: 2023/10/05 22:41:22 by evportel         ###   ########.fr        #
+#    Updated: 2023/10/06 21:33:39 by evportel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-# COLOR ********************************************************************** #
+# COLORS ********************************************************************* #
 RED		=	\033[31m
 GREEN	=	\033[32m
 YELLOW	=	\033[33m
@@ -20,32 +20,34 @@ CYAN	=	\033[36m
 RESET	=	\033[0m
 
 # FLAGS MANDATORY ************************************************************ #
-NAME	=	push_swap
-CC		=	cc
-FLAGS	=	-Wall -Wextra -Werror
-LIBFT	= -L ./libft -lft
+NAME		=	push_swap
+CC			=	cc
+FLAGS		=	-Wall -Wextra -Werror
+LIBFT		=	-L ./libft -lft
 
-SRC		=	main.c	ft_receive_entries.c
+SRC			=	main.c	ft_receive_entries.c
 
-OBJ		=	${SRC:.c=.o}
-
-HEADER	=	-I ./
+OBJ			=	${SRC:.c=.o}
+HEADER		=	-I ./
 
 # RULES MANDATORY ************************************************************ #
 %.o: %.c
 			@printf "${YELLOW}Compiling: ${CYAN}${notdir $<}${RESET}\n"
-			@${CC} ${FLAGS} ${HEADER} -c $< -o $@
-
-mylibft:
-			@make -j8 -C ./libft/ --no-print-directory
-
-${NAME}:	${OBJ} | mylibft
-			@printf "${BLUE}All objects created!${RESET}\n"
-			@${CC} ${FLAGS} -o ${NAME} ${HEADER} ${OBJ} ${LIBFT}
-			@printf "${GREEN}${NAME} created!${RESET}\n"
-			@exit 0
+			${CC} ${FLAGS} ${HEADER} -c $< -o $@
 
 all:		${NAME}
+
+mylibft:
+			@make -j21 -C ./libft/ --no-print-directory
+#			@printf "${BLUE}All libft objects have been created!${RESET}\n"
+
+${NAME}:	${OBJ} | mylibft
+			@printf "${BLUE}All libft objects have been created!${RESET}\n"
+			@printf "${BLUE}${NAME} objects have been created!${RESET}\n"
+			${CC} ${FLAGS} -o ${NAME} ${OBJ} ${LIBFT} ${HEADER}
+			@printf "${GREEN}${NAME} - Compilado com sucesso!${RESET}\n"
+
+
 
 # CLEANING RULES ************************************************************* #
 clean:
@@ -58,7 +60,7 @@ fclean:		clean
 			@make fclean -C ./libft/ --no-print-directory
 			@printf "${RED}${NAME} removed!${RESET}\n"
 
-re:			fclean all
+re:			fclean ${NAME}
 
 # TEST RULES ***************************************************************** #
 norm:
