@@ -1,31 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_receive_inputs.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: evportel <evportel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/05 21:48:22 by evportel          #+#    #+#             */
-/*   Updated: 2023/10/12 11:37:53 by evportel         ###   ########.fr       */
+/*   Created: 2023/10/12 11:16:52 by evportel          #+#    #+#             */
+/*   Updated: 2023/10/12 11:26:00 by evportel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char **argv)
+void	ft_receive_inputs(int argc, char **argv, int *array_numbers)
 {
-	int	*array_numbers;
+	int	index;
 
-	if (argc == 1)
-		ft_push_swap_error(1, "Invalid arguments\nUse ./push_swap Num Num ...");
-	argc--;
-	argv++;
-	array_numbers = malloc (argc * sizeof(int));
-	if (array_numbers == NULL)
-		exit(EXIT_FAILURE);
-	ft_valid_args(argc, argv);
-	ft_receive_inputs(argc, argv, array_numbers);
-	ft_printf("%d ", array_numbers[0]);
-	ft_printf("%d ", array_numbers[1]);
-	return (EXIT_FAILURE);
+	index = 0;
+	while (index < argc)
+	{
+		array_numbers[index] = ft_atoi(argv[index]);
+		index++;
+	}
 }
