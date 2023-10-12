@@ -6,7 +6,7 @@
 /*   By: evportel <evportel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 10:50:10 by evportel          #+#    #+#             */
-/*   Updated: 2023/10/12 11:34:49 by evportel         ###   ########.fr       */
+/*   Updated: 2023/10/12 14:06:26 by evportel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ int	ft_valid_args(int argc, char **argv)
 	{
 		flag = ft_is_integer(argv[index]);
 		if (flag == EXIT_FAILURE)
-			ft_push_swap_error(1, "Invalid arguments");
+			ft_push_swap_error();
 		index++;
 	}
 	return (EXIT_SUCCESS);

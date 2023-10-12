@@ -6,11 +6,24 @@
 /*   By: evportel <evportel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 11:16:52 by evportel          #+#    #+#             */
-/*   Updated: 2023/10/12 12:19:28 by evportel         ###   ########.fr       */
+/*   Updated: 2023/10/12 15:49:52 by evportel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+static int	ft_check_sort(int argc, int *array_num)
+{
+	int	index;
+
+	index = 0;
+	argc--;
+	while (index < argc && array_num[index] < array_num[index + 1])
+		index++;
+	if (index == argc)
+		return (EXIT_FAILURE);
+	return (EXIT_SUCCESS);
+}
 
 static int	ft_check_duplicates(int argc, int *array_numbers)
 {
@@ -43,5 +56,7 @@ void	ft_receive_inputs(int argc, char **argv, int *array_numbers)
 		index++;
 	}
 	if (ft_check_duplicates(argc, array_numbers) == EXIT_FAILURE) 
+		ft_push_swap_error();
+	if (ft_check_sort(argc, array_numbers) == EXIT_FAILURE)
 		ft_push_swap_error();
 }
