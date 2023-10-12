@@ -6,7 +6,7 @@
 /*   By: evportel <evportel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 21:48:22 by evportel          #+#    #+#             */
-/*   Updated: 2023/10/12 11:37:53 by evportel         ###   ########.fr       */
+/*   Updated: 2023/10/12 11:59:38 by evportel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	main(int argc, char **argv)
 	int	*array_numbers;
 
 	if (argc == 1)
-		ft_push_swap_error(1, "Invalid arguments\nUse ./push_swap Num Num ...");
+		exit(EXIT_FAILURE);
 	argc--;
 	argv++;
 	array_numbers = malloc (argc * sizeof(int));
