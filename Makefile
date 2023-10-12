@@ -6,7 +6,7 @@
 #    By: evportel <evportel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/04 22:04:00 by evportel          #+#    #+#              #
-#    Updated: 2023/10/12 11:23:36 by evportel         ###   ########.fr        #
+#    Updated: 2023/10/12 17:52:54 by evportel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,9 @@ CC			=	cc
 FLAGS		=	-Wall -Wextra -Werror
 LIBFT		=	-L ./libft -lft
 
-SRC			=	${addprefix sources/, ft_push_swap_error.c} \
+SRC			=	${addprefix sources/, ft_print_stack.c} \
+				${addprefix sources/, ft_get_start_index.c} \
+				${addprefix sources/, ft_push_swap_error.c} \
 				${addprefix sources/, ft_receive_inputs.c} \
 				${addprefix sources/, ft_validate_arguments.c} \
 				${addprefix sources/, main.c}
@@ -71,6 +73,6 @@ norm:
 			norminette
 
 valgrind:	
-			valgrind -s --leak-check=yes ./push_swap -10 -9
+			valgrind -s --leak-check=yes ./push_swap 2 1 3 6 5 8
 
 .PHONY: all bonus clean fclean re

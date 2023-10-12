@@ -6,7 +6,7 @@
 /*   By: evportel <evportel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 20:30:58 by evportel          #+#    #+#             */
-/*   Updated: 2023/10/12 12:02:35 by evportel         ###   ########.fr       */
+/*   Updated: 2023/10/12 17:12:53 by evportel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,10 @@
  * Project functions prototypes
 */
 void	ft_push_swap_error(void);
-int		ft_valid_args(int argc, char **argv);
-void	ft_receive_inputs(int argc, char **argv, int *array_numbers);
+int		ft_valid_args(int length, char **argv);
+void	ft_receive_inputs(int length, char **argv, int *array_numbers);
+int		*ft_get_start_index(int length, int *array_number);
+
+void	ft_print_stack(int *stack, int size);
 
 #endif
