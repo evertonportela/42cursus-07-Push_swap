@@ -6,7 +6,7 @@
 /*   By: evportel <evportel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 21:44:55 by evportel          #+#    #+#             */
-/*   Updated: 2023/10/05 22:30:12 by evportel         ###   ########.fr       */
+/*   Updated: 2023/10/12 10:37:33 by evportel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	*ft_receive_entries(int argc, char **argv)
 
 	entries = (int *) malloc((argc - 1) * sizeof(int));
 	if (entries == 0)
-		return NULL;
+		return (NULL);
 	index = 0;
 	while (index < argc -1)
 	{
