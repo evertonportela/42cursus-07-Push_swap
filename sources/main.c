@@ -6,7 +6,7 @@
 /*   By: evportel <evportel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 21:48:22 by evportel          #+#    #+#             */
-/*   Updated: 2023/10/11 22:06:14 by evportel         ###   ########.fr       */
+/*   Updated: 2023/10/12 10:25:44 by evportel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,34 +36,36 @@ static int ft_check_is_digit(char *argv)
 	return (EXIT_SUCCESS);
 }
 
-static int	ft_is_integer(char *argv)
+static int	ft_is_integer(char *str_input)
 {
 	int	index;
 	int	negative;
 	int	number;
 
-	if (ft_check_is_digit(argv) == EXIT_FAILURE)
+	if (ft_check_is_digit(str_input) == EXIT_FAILURE)
 		return (EXIT_FAILURE);
-	negative = ft_check_is_negative(argv);			//	1 is negative, 0 is positive
+	negative = ft_check_is_negative(str_input);			//	1 is negative, 0 is positive
 	index = negative;
 	number = 0;
-	while (argv[index] != '\0')
+	while (str_input[index] != '\0')
 	{
-		if (!ft_isdigit(argv[index]))
+		if (!ft_isdigit(str_input[index]))
 			return (EXIT_FAILURE);
-		number = (number * 10) + (argv[index] - '0');
+		number = (number * 10) + (str_input[index] - '0');
 		if (negative == 1 && - number < INT_MIN)
+			return (EXIT_FAILURE);
+		if (negative == 0 && number > INT_MAX)
+			return (EXIT_FAILURE);
 		index++;
-	}	
+	}
+	return (EXIT_SUCCESS);
 }
 
 static void	ft_push_swap_error(int cod_exit, char *str)
 {
-	ft_putstr_fd("Push_Swap_Error: ", 2);
+	ft_putstr_fd("Push_Swap_Error", 2);
 	if (cod_exit == 127)
 		ft_putstr_fd("Command not found", 2);
-	else if (cod_exit == 22)
-		ft_putstr_fd("Invalid arguments", 2);
 	if (str[0] != 0)
 	{
 		ft_putstr_fd(": ", 2);
@@ -86,10 +88,12 @@ static int	ft_valid_args(int argc, char **argv)
 	while (index < argc)
 	{
 		flag = ft_is_integer(argv[index]);
-		if (flag == 0)
+		if (flag == EXIT_FAILURE)
 		{
+			ft_push_swap_error(1, "Invalid arguments");
 			return (EXIT_FAILURE);
 		}
+		index++;
 	}
 	return (EXIT_SUCCESS);
 }
@@ -108,6 +112,7 @@ int	main(int argc, char **argv)
 		exit(EXIT_FAILURE);
 
 	ft_valid_args(argc, argv);
+	ft_printf("Args - OK");
 
 	return (EXIT_FAILURE);
 }
