@@ -6,7 +6,7 @@
 #    By: evportel <evportel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/04 22:04:00 by evportel          #+#    #+#              #
-#    Updated: 2023/10/12 10:45:59 by evportel         ###   ########.fr        #
+#    Updated: 2023/10/12 10:52:37 by evportel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,6 +26,7 @@ FLAGS		=	-Wall -Wextra -Werror
 LIBFT		=	-L ./libft -lft
 
 SRC			=	${addprefix sources/, ft_push_swap_error.c} \
+				${addprefix sources/, ft_validate_arguments.c} \
 				${addprefix sources/, main.c}
 
 OBJ			=	${SRC:.c=.o}
