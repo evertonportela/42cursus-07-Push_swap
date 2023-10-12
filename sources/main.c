@@ -6,7 +6,7 @@
 /*   By: evportel <evportel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 21:48:22 by evportel          #+#    #+#             */
-/*   Updated: 2023/10/11 21:47:13 by evportel         ###   ########.fr       */
+/*   Updated: 2023/10/11 22:06:14 by evportel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ static int ft_check_is_negative(char *argv)
 	int	negative;
 
 	if (argv[0] == '-')
-		negative = 0;
-	else
 		negative = 1;
+	else
+		negative = 0;
 	return (negative);
 }
 
@@ -38,9 +38,23 @@ static int ft_check_is_digit(char *argv)
 
 static int	ft_is_integer(char *argv)
 {
+	int	index;
+	int	negative;
+	int	number;
+
 	if (ft_check_is_digit(argv) == EXIT_FAILURE)
 		return (EXIT_FAILURE);
-	
+	negative = ft_check_is_negative(argv);			//	1 is negative, 0 is positive
+	index = negative;
+	number = 0;
+	while (argv[index] != '\0')
+	{
+		if (!ft_isdigit(argv[index]))
+			return (EXIT_FAILURE);
+		number = (number * 10) + (argv[index] - '0');
+		if (negative == 1 && - number < INT_MIN)
+		index++;
+	}	
 }
 
 static void	ft_push_swap_error(int cod_exit, char *str)
