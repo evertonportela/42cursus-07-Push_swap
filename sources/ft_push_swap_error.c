@@ -1,25 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_push_swap_error.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: evportel <evportel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/05 20:30:58 by evportel          #+#    #+#             */
-/*   Updated: 2023/10/12 10:46:12 by evportel         ###   ########.fr       */
+/*   Created: 2023/10/12 10:45:00 by evportel          #+#    #+#             */
+/*   Updated: 2023/10/12 10:46:10 by evportel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "push_swap.h"
 
-# define INT_MIN -2147483647
-# define INT_MAX 2147483647
-
-# include "./libft/libft.h"		/* libtf */
-# include "stdlib.h"			/* EXIT_SUCCESS */
-# include "unistd.h"			/* malloc, free */
-
-void	ft_push_swap_error(int cod_exit, char *str);
-
-#endif
+void	ft_push_swap_error(int cod_exit, char *str)
+{
+	ft_putstr_fd("Push_Swap_Error", 2);
+	if (cod_exit == 127)
+		ft_putstr_fd("Command not found", 2);
+	if (str[0] != 0)
+	{
+		ft_putstr_fd(": ", 2);
+		ft_putstr_fd(str, 2);
+	}
+	ft_putstr_fd("\n", 2);
+	if (cod_exit == 0)
+		exit(cod_exit);
+	else
+		exit(EXIT_FAILURE);
+}
