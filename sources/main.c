@@ -6,7 +6,7 @@
 /*   By: evportel <evportel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 21:48:22 by evportel          #+#    #+#             */
-/*   Updated: 2023/10/12 17:57:11 by evportel         ###   ########.fr       */
+/*   Updated: 2023/10/14 18:38:45 by evportel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 
 int	main(int argc, char **argv)
 {
-	int	*array_numbers;
-	int	*start_index;
+	int		*array_numbers;
+	int		*start_index;
+	char	**binaries;
 
 	if (argc == 1)
 		exit(EXIT_FAILURE);
@@ -28,6 +29,7 @@ int	main(int argc, char **argv)
 	ft_receive_inputs(argc, argv, array_numbers);
 
 	start_index = ft_get_start_index(argc, array_numbers);
+	binaries = ft_make_binaries(argc, start_index);
 	
 	free(array_numbers);
 	free(start_index);
