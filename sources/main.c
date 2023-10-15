@@ -6,7 +6,7 @@
 /*   By: evportel <evportel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 21:48:22 by evportel          #+#    #+#             */
-/*   Updated: 2023/10/15 16:52:48 by evportel         ###   ########.fr       */
+/*   Updated: 2023/10/15 16:54:10 by evportel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,8 @@ int	main(int argc, char **argv)
 
 	ft_init_struct(&pack, argc);
 	ft_stack_charging(&pack, binaries, start_index);
+
+	ft_push_swap(&pack, start_index);
 
 	free(array_numbers);
 	free(start_index);
