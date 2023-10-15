@@ -6,7 +6,7 @@
 /*   By: evportel <evportel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 15:27:59 by evportel          #+#    #+#             */
-/*   Updated: 2023/10/14 19:14:39 by evportel         ###   ########.fr       */
+/*   Updated: 2023/10/15 15:28:01 by evportel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ static int	ft_find_limit(int length)
  * e armazena numa string.
  * Calcula o limite de armzenamento e +1 para o '\0'
  * Faz uma operação de deslocamento à direita e extrai o bit mais significativo
+ * Observe que esse mais significativo faz muita diferenca aqui.
  * Converte o valor usando referencial da tabela ASCII
  * e retonar a representação binária.
 */
