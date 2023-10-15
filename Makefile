@@ -6,7 +6,7 @@
 #    By: evportel <evportel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/04 22:04:00 by evportel          #+#    #+#              #
-#    Updated: 2023/10/14 15:28:55 by evportel         ###   ########.fr        #
+#    Updated: 2023/10/15 16:24:49 by evportel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,7 @@ SRC			=	${addprefix sources/, ft_print_stack.c} \
 				${addprefix sources/, ft_get_start_index.c} \
 				${addprefix sources/, ft_make_binaries.c} \
 				${addprefix sources/, ft_push_swap_error.c} \
+				${addprefix sources/, ft_push_swap_list_operations.c} \
 				${addprefix sources/, ft_receive_inputs.c} \
 				${addprefix sources/, ft_validate_arguments.c} \
 				${addprefix sources/, main.c}
