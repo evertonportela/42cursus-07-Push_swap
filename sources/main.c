@@ -61,7 +61,7 @@ int	main(int argc, char **argv)
 	ft_init_struct(&pack, argc);
 	ft_stack_charging(&pack, binaries, start_index);
 
-	ft_push_swap(&pack, start_index);
+	ft_push_swap(&pack, start_index); // aparentemente vou ter que remover o parametro startindex daqui, nao uso.
 
 	free(array_numbers);
 	free(start_index);
