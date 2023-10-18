@@ -6,7 +6,7 @@
 /*   By: evportel <evportel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 15:27:59 by evportel          #+#    #+#             */
-/*   Updated: 2023/10/15 15:28:01 by evportel         ###   ########.fr       */
+/*   Updated: 2023/10/18 20:05:36 by evportel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
  * pode ser dividido por '2', antes de se tornar zero.
  * Será usado para determinar o tamanho da alocação de memória necessária.
 */
-static int	ft_find_limit(int length)
+int	ft_find_limit(int length)
 {
 	int	limit;
 
