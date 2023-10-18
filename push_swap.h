@@ -57,8 +57,8 @@ void	ft_swap_a(t_stack_pack *pack);
 void	ft_swap_b(t_stack_pack *pack);
 void	ft_reverse_rotate_a(t_stack_pack *pack);
 void	ft_reverse_rotate_b(t_stack_pack *pack);
-
 void	ft_push_swap_short(t_stack_pack *pack);
+void	ft_clean_project(t_stack_pack *pack, int *array_num, int *start_index, char **array_bin);
 
 void	ft_print_stack(int *stack, int size);
 

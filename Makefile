@@ -26,6 +26,7 @@ FLAGS		=	-Wall -Wextra -Werror
 LIBFT		=	-L ./libft -lft
 
 SRC			=	${addprefix sources/, ft_print_stack.c} \
+				${addprefix sources/, ft_clean_struct.c} \
 				${addprefix sources/, ft_get_start_index.c} \
 				${addprefix sources/, ft_make_binaries.c} \
 				${addprefix sources/, ft_push_a.c} \
@@ -85,6 +86,7 @@ norm:
 			norminette
 
 valgrind:	
-			valgrind -s --leak-check=yes ./push_swap 2 1 3 6 5 8
+			valgrind -s --leak-check=yes --track-origins=yes ./push_swap 2 1 3 6 5 8 9
+#			valgrind -s --leak-check=yes ./push_swap 2 1 3 6
 
 .PHONY: all bonus clean fclean re

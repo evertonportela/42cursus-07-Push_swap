@@ -63,7 +63,6 @@ int	main(int argc, char **argv)
 
 	ft_push_swap(&pack, start_index); // aparentemente vou ter que remover o parametro startindex daqui, nao uso.
 
-	free(array_numbers);
-	free(start_index);
+	ft_clean_project(&pack, array_numbers, start_index, binaries);
 	return (EXIT_FAILURE);
 }
