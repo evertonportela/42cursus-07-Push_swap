@@ -6,7 +6,7 @@
 #    By: evportel <evportel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/04 22:04:00 by evportel          #+#    #+#              #
-#    Updated: 2023/10/15 19:04:10 by evportel         ###   ########.fr        #
+#    Updated: 2023/10/18 19:52:16 by evportel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -88,5 +88,9 @@ norm:
 valgrind:	
 			valgrind -s --leak-check=yes --track-origins=yes ./push_swap 2 1 3 6 5 8 9
 #			valgrind -s --leak-check=yes ./push_swap 2 1 3 6
+
+visu:
+			./visualizer/build/bin/visualizer
+			
 
 .PHONY: all bonus clean fclean re

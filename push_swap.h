@@ -6,7 +6,7 @@
 /*   By: evportel <evportel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 20:30:58 by evportel          #+#    #+#             */
-/*   Updated: 2023/10/15 18:58:24 by evportel         ###   ########.fr       */
+/*   Updated: 2023/10/18 20:05:50 by evportel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ void	ft_push_swap_error(void);
 int		ft_valid_args(int length, char **argv);
 void	ft_receive_inputs(int length, char **argv, int *array_numbers);
 int		*ft_get_start_index(int length, int *array_number);
+int		ft_find_limit(int length);
 char	**ft_make_binaries(int length, int *numbers);
 
 
@@ -47,7 +48,7 @@ t_stack	*ft_push_swap_lst_last(t_stack *list);
 void	ft_push_swap_lst_add_back(t_stack **list, t_stack *next);
 t_stack	*ft_push_swap_lst_prev_last(t_stack *list);
 void	ft_push_swap_lst_add_front(t_stack **list, t_stack *new);
-void	ft_push_swap(t_stack_pack *pack, int *index);
+void	ft_push_swap(t_stack_pack *pack);
 
 void	ft_rotate_a(t_stack_pack *pack);
 void	ft_rotate_b(t_stack_pack *pack);

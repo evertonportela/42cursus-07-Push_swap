@@ -6,7 +6,7 @@
 /*   By: evportel <evportel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 21:48:22 by evportel          #+#    #+#             */
-/*   Updated: 2023/10/15 16:54:10 by evportel         ###   ########.fr       */
+/*   Updated: 2023/10/18 20:27:24 by evportel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,31 +38,54 @@ static void	ft_stack_charging(t_stack_pack *pack,
 	}
 }
 
+/**
+ * Função principal do programa.
+ *
+ * @param argc O número de argumentos de linha de comando.
+ * @param argv Um array de strings contendo os argumentos de linha de comando.
+ * @return Um valor de saída que indica o sucesso ou falha do programa.
+ */
 int	main(int argc, char **argv)
 {
-	int				*array_numbers;
-	int				*start_index;
-	char			**binaries;
-	t_stack_pack	pack;
+	int *array_numbers;		// Array para armazenar os números de entrada.
+	int *start_index;		// Array de índices de início.
+	char **binaries;		// Array de representações binárias dos números.
+	t_stack_pack pack;		// Estrutura principal que contém as pilhas e informações.
 
 	if (argc == 1)
+	{
+		// Se não houver argumentos de linha de comando, sai com erro.
 		exit(EXIT_FAILURE);
+    }
+	// Decrementa a contagem de argumentos e avança o ponteiro de argumentos.
 	argc--;
 	argv++;
+
+	// Aloca memória para o array de números e valida os argumentos de entrada.
 	array_numbers = malloc (argc * sizeof(int));
 	if (array_numbers == NULL)
 		exit(EXIT_FAILURE);
+	
+	// Função para validar os argumentos.
 	ft_valid_args(argc, argv);
-	ft_receive_inputs(argc, argv, array_numbers);
+    
+	// Recebe os números de entrada e preenche o array 'array_numbers'.
+    ft_receive_inputs(argc, argv, array_numbers);
 
-	start_index = ft_get_start_index(argc, array_numbers);
-	binaries = ft_make_binaries(argc, start_index);
+    // Calcula os índices de início dos números em relação à ordenação.
+    start_index = ft_get_start_index(argc, array_numbers);
 
-	ft_init_struct(&pack, argc);
-	ft_stack_charging(&pack, binaries, start_index);
+    // Gera representações binárias dos números e inicializa a estrutura principal.
+    binaries = ft_make_binaries(argc, start_index);
+    ft_init_struct(&pack, argc);
 
-	ft_push_swap(&pack, start_index); // aparentemente vou ter que remover o parametro startindex daqui, nao uso.
+    // Carrega os números nas pilhas e inicia o algoritmo "push-swap".
+    ft_stack_charging(&pack, binaries, start_index);
+    ft_push_swap(&pack);
 
-	ft_clean_project(&pack, array_numbers, start_index, binaries);
-	return (EXIT_FAILURE);
+    // Limpa a memória alocada e encerra o programa.
+    ft_clean_project(&pack, array_numbers, start_index, binaries);
+    
+	// Retorna um valor de saída indicando erro.
+	return EXIT_FAILURE;
 }
