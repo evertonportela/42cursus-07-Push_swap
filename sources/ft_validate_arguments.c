@@ -6,61 +6,64 @@
 /*   By: evportel <evportel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 10:50:10 by evportel          #+#    #+#             */
-/*   Updated: 2023/10/12 14:06:26 by evportel         ###   ########.fr       */
+/*   Updated: 2023/10/18 21:06:00 by evportel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	ft_check_is_negative(char *argv)
+/**
+ * Verifica se a string de entrada representa um número inteiro válido.
+ *
+ * @param str_input A string de entrada a ser verificada.
+ * @return	Um valor de saída que indica o sucesso (EXIT_SUCCESS) 
+ * 			ou falha (EXIT_FAILURE) da verificação.
+ */
+static int ft_is_integer(char *str_input) 
 {
-	int	negative;
+    int index;
+    int negative;
 
-	if (argv[0] == '-')
-		negative = 1;
-	else
-		negative = 0;
-	return (negative);
-}
-
-static int	ft_check_is_digit(char *argv)
-{
-	if (argv[0] == '-' && !ft_isdigit(argv[1]))
-		return (EXIT_FAILURE);
-	if (argv[0] == '-' && argv[1] == '\0')
-		return (EXIT_FAILURE);
-	if (argv[0] != '-' && !ft_isdigit(argv[0]))
-		return (EXIT_FAILURE);
-	if (argv[0] == '\0')
-		return (EXIT_FAILURE);
-	return (EXIT_SUCCESS);
-}
-
-static int	ft_is_integer(char *str_input)
-{
-	int	index;
-	int	negative;
-	int	number;
-
-	if (ft_check_is_digit(str_input) == EXIT_FAILURE)
-		return (EXIT_FAILURE);
-	negative = ft_check_is_negative(str_input);			//	1 is negative, 0 is positive
-	index = negative;
-	number = 0;
-	while (str_input[index] != '\0')
+	index = 0;
+    negative = 0;
+    if (str_input[0] == '-') 
 	{
-		if (!ft_isdigit(str_input[index]))
-			return (EXIT_FAILURE);
-		number = (number * 10) + (str_input[index] - '0');
-		if (negative == 1 && - number < INT_MIN)
-			return (EXIT_FAILURE);
-		if (negative == 0 && number > INT_MAX)
-			return (EXIT_FAILURE);
-		index++;
-	}
-	return (EXIT_SUCCESS);
+        // Define 'negative' como 1 se o primeiro caractere for um sinal de menos ("-").
+		negative = 1;
+    }
+
+    while (str_input[index] != '\0') 
+	{
+        if (!ft_isdigit(str_input[index])) 
+		{
+            // Se algum caractere não for um dígito, a string não representa um número inteiro válido.
+            return EXIT_FAILURE;
+        }
+        index++;
+    }
+
+    if (negative == 1 && -ft_atoi(str_input) < INT_MIN) 
+	{
+        // Se a string for negativa e o valor absoluto for menor que o limite mínimo de um inteiro, é inválida.
+        return EXIT_FAILURE;
+    }
+    if (negative == 0 && ft_atoi(str_input) > INT_MAX) 
+	{
+        // Se a string for positiva e o valor for maior que o limite máximo de um inteiro, é inválida.
+        return EXIT_FAILURE;
+    }
+	// A string representa um número inteiro válido.
+    return EXIT_SUCCESS;
 }
 
+/**
+ * Valida os argumentos de entrada do programa.
+ *
+ * @param argc O número de argumentos de linha de comando.
+ * @param argv Um array de strings contendo os argumentos de linha de comando.
+ * @return Um valor de saída que indica o sucesso (EXIT_SUCCESS) 
+ * ou falha (EXIT_FAILURE) da validação.
+ */
 int	ft_valid_args(int argc, char **argv)
 {
 	int	index;
@@ -71,9 +74,12 @@ int	ft_valid_args(int argc, char **argv)
 	while (index < argc)
 	{
 		flag = ft_is_integer(argv[index]);
+        // Se algum argumento não for um número inteiro válido, 
+		// exibe uma mensagem de erro e sai com falha.
 		if (flag == EXIT_FAILURE)
 			ft_push_swap_error();
 		index++;
 	}
+	// Todos os argumentos são válidos.
 	return (EXIT_SUCCESS);
 }

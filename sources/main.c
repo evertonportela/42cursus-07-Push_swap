@@ -6,19 +6,32 @@
 /*   By: evportel <evportel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 21:48:22 by evportel          #+#    #+#             */
-/*   Updated: 2023/10/18 20:27:24 by evportel         ###   ########.fr       */
+/*   Updated: 2023/10/18 20:47:12 by evportel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+/**
+ * Inicializa a estrutura t_stack_pack com valores iniciais.
+ *
+ * @param pack A estrutura que será inicializada.
+ * @param length O tamanho da estrutura (número de elementos).
+ */
 static void	ft_init_struct(t_stack_pack *pack, int length)
 {
-	pack->length = length;
-	pack->stack_a = NULL;
-	pack->stack_b = NULL;
+    pack->length = length;	// Define o tamanho da estrutura com o valor fornecido.
+    pack->stack_a = NULL;	// Inicializa a pilha stack_a como vazia.
+    pack->stack_b = NULL;	// Inicializa a pilha stack_b como vazia.
 }
 
+/**
+ * Carrega os números e suas representações binárias nas pilhas.
+ *
+ * @param pack A estrutura que contém as pilhas e informações.
+ * @param array_bin Um array de strings contendo as representações binárias dos números.
+ * @param array_numbers Um array de números de entrada.
+ */
 static void	ft_stack_charging(t_stack_pack *pack,
 								char **array_bin, int *array_numbers)
 {
@@ -27,11 +40,13 @@ static void	ft_stack_charging(t_stack_pack *pack,
 	if (pack->length != 0)
 	{
 		index = 0;
+        // Inicializa a pilha 'stack_a' com o primeiro número e sua representação binária.
 		pack->stack_a = ft_push_swap_lst_new(array_bin[index],
 				array_numbers[index]);
 		while (index < (pack->length - 1))
 		{
 			index++;
+            // Adiciona os números restantes à pilha 'stack_a'.
 			ft_push_swap_lst_add_back(&pack->stack_a,
 				ft_push_swap_lst_new(array_bin[index], array_numbers[index]));
 		}
