@@ -6,7 +6,7 @@
 /*   By: evportel <evportel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 17:52:35 by evportel          #+#    #+#             */
-/*   Updated: 2023/10/15 18:30:05 by evportel         ###   ########.fr       */
+/*   Updated: 2023/10/24 22:42:43 by evportel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_push_b(t_stack_pack *pack)
 {
-	t_stack *first;
+	t_stack	*first;
 
 	if (pack->stack_a != NULL)
 	{

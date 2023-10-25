@@ -6,7 +6,7 @@
 /*   By: evportel <evportel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 18:37:06 by evportel          #+#    #+#             */
-/*   Updated: 2023/10/15 18:43:17 by evportel         ###   ########.fr       */
+/*   Updated: 2023/10/24 22:36:29 by evportel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	ft_reverse_rotate_a(t_stack_pack *pack)
 	{
 		last = pack->stack_a;
 		prev_last = NULL;
-		while(last->next != NULL)
+		while (last->next != NULL)
 		{
 			prev_last = last;
 			last = last->next;
