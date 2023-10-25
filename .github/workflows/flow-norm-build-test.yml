@@ -33,7 +33,7 @@ jobs:
         
   build:
     name: build
-    # needs: norminette
+    needs: norminette
     runs-on: ubuntu-20.04
     defaults:
       run:
@@ -46,7 +46,7 @@ jobs:
 
   Tester_LeoFu9487:
     name: Tester LeoFu9487
-    # needs: build
+    needs: build
     runs-on: ubuntu-20.04
     defaults:
       run:
