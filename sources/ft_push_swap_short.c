@@ -6,68 +6,107 @@
 /*   By: evportel <evportel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 17:07:06 by evportel          #+#    #+#             */
-/*   Updated: 2023/10/15 19:00:22 by evportel         ###   ########.fr       */
+/*   Updated: 2023/10/24 22:03:48 by evportel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+/**
+ * Ordena os números na pilha A movendo pos_0 para pos_2, com base em comparações de índices.
+ *
+ * @param pos_0     Índice da posição inicial (posição do primeiro número).
+ * @param pos_1     Índice da segunda posição.
+ * @param pos_2     Índice da posição alvo (onde pos_0 deve ser movido).
+ * @param pack      Ponteiro para a estrutura t_stack_pack contendo as pilhas.
+ * @return          EXIT_SUCCESS se a ordenação for bem-sucedida, EXIT_FAILURE caso contrário.
+ */
 static int	ft_pos_0_largest_pos_1(int pos_0, int pos_1, int pos_2,
 			t_stack_pack *pack)
 {
+	// Verifica se pos_1 é maior que pos_2.
 	if (pos_1 > pos_2)
 	{
+		// Se sim, realiza uma troca seguida de uma rotação reversa na pilha A.
 		ft_swap_a(pack);
 		ft_reverse_rotate_a(pack);
 		return (EXIT_SUCCESS);
 	}
+    // Verifica se pos_0 é maior que pos_2.
 	if (pos_0 > pos_2)
 	{
+        // Se sim, realiza uma rotação padrão na pilha A para mover pos_0 para pos_2.
 		ft_rotate_a(pack);
 		return (EXIT_SUCCESS);
 	}
 	else
 	{
+		// Se nenhuma das condições anteriores for atendida, realiza uma troca para reorganizar os elementos.
 		ft_swap_a(pack);
 		return (EXIT_SUCCESS);
 	}
-		return (EXIT_FAILURE);
+	// Se nenhuma ação for realizada, retorna EXIT_FAILURE.
+	return (EXIT_FAILURE);
 }
 
+/**
+ * Ordena os números na pilha A movendo pos_0 para pos_2, se necessário.
+ *
+ * @param pos_0     Índice da posição inicial (posição do primeiro número).
+ * @param pos_2     Índice da posição alvo (onde pos_0 deve ser movido).
+ * @param pack      Ponteiro para a estrutura t_stack_pack contendo as pilhas.
+ * @return          EXIT_SUCCESS se a ordenação for bem-sucedida, EXIT_FAILURE caso contrário.
+ */
 static int	ft_pos_0_smallest_pos_1(int pos_0, int pos_2, t_stack_pack *pack)
 {
+	// Verifica se pos_0 é maior que pos_2.
 	if (pos_0 > pos_2)
 	{
+		// Se sim, realiza uma rotação reversa na pilha A.
 		ft_reverse_rotate_a(pack);
 		return (EXIT_SUCCESS);
 	}
 	else 
 	{
+		// Se não, troca as duas posições e, em seguida, faz uma rotação padrão na pilha A.
 		ft_swap_a(pack);
 		ft_rotate_a(pack);
 		return (EXIT_SUCCESS);
 	}
+	// Se nenhuma ação for realizada, retorna EXIT_FAILURE.
 	return (EXIT_FAILURE);
 }
 
+/**
+ * Verifica a ordem dos índices dos três números no topo da pilha A e executa as ações apropriadas.
+ * Esta função é usada para ordenar os números no topo da pilha A.
+ *
+ * @param pack - Estrutura que contém as pilhas e informações.
+ * @return EXIT_SUCCESS se a ordenação for bem-sucedida, EXIT_FAILURE caso contrário.
+ */
 static int	ft_rotate_three_numbers(t_stack_pack *pack)
 {
 	int	position_0;
 	int	position_1;
 	int	position_2;
 
+    // Obtenha os índices dos três números no topo da pilha A.
 	position_0 = pack->stack_a->index;
 	position_1 = pack->stack_a->next->index;
 	position_2 = pack->stack_a->next->next->index;
+
+	// Verifique a ordem dos índices e execute as ações apropriadas.
 	if ((position_0 < position_1) && (position_1 < position_2))
 		return (EXIT_SUCCESS);
 	if (position_0 > position_1)
 	{
+		// Caso 1: Se o número no topo (posição 0) for o maior, mova-o para o final da pilha.
 		ft_pos_0_largest_pos_1(position_0, position_1, position_2, pack);
 		return (EXIT_SUCCESS);
 	}
 	else
 	{
+		// Caso 2: Se o número no topo (posição 0) for o menor, mova-o para o final da pilha.
 		ft_pos_0_smallest_pos_1(position_0, position_2, pack);
 		return (EXIT_SUCCESS);
 	}
