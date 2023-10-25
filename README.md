@@ -29,3 +29,5 @@ Os objetivos de aprendizagem deste projeto são rigor, uso de C e uso de algorit
 Especialmente focando em sua complexidade.
 
 Classificar valores é simples. Classificá-los da maneira mais rápida possível é menos simples. Principalmente porque de uma configuração de inteiros para outra, a solução de classificação mais eficiente pode ser diferente.
+
+A documentação desse projeto ficou melhor formatada no Notion, [cuidado ao clicar no link.](https://www.notion.so/portela/Push_Swap-02305f81476e454ea1ca6ad12212da72?pvs=4)
