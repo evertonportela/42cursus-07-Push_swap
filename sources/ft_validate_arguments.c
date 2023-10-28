@@ -6,7 +6,7 @@
 /*   By: evportel <evportel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 10:50:10 by evportel          #+#    #+#             */
-/*   Updated: 2023/10/24 22:29:42 by evportel         ###   ########.fr       */
+/*   Updated: 2023/10/28 16:44:31 by evportel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ int	ft_valid_args(int argc, char **argv)
 	flag = 0;
 	while (index < argc)
 	{
+		if (argv[index][0] == '\0')
+			ft_push_swap_error();
 		flag = ft_is_integer(argv[index]);
 		if (flag == EXIT_FAILURE)
 			ft_push_swap_error();

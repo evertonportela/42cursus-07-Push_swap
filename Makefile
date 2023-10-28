@@ -6,7 +6,7 @@
 #    By: evportel <evportel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/04 22:04:00 by evportel          #+#    #+#              #
-#    Updated: 2023/10/27 22:13:07 by evportel         ###   ########.fr        #
+#    Updated: 2023/10/28 15:46:55 by evportel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ RESET	=	\033[0m
 # FLAGS MANDATORY ************************************************************ #
 NAME		=	push_swap
 CC			=	cc
-FLAGS		=	-Wall -Wextra -Werror -O3 -g3
+FLAGS		=	-Wall -Wextra -Werror -O3
 LIBFT		=	-L ./libft -lft
 
 SRC			=	${addprefix sources/, ft_print_stack.c} \
