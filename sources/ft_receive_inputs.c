@@ -6,7 +6,7 @@
 /*   By: evportel <evportel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 11:16:52 by evportel          #+#    #+#             */
-/*   Updated: 2023/10/24 22:38:23 by evportel         ###   ########.fr       */
+/*   Updated: 2023/10/28 16:17:36 by evportel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,10 @@ void	ft_receive_inputs(int argc, char **argv, int *array_numbers)
 		index++;
 	}
 	if (ft_check_duplicates(argc, array_numbers) == EXIT_FAILURE)
-		ft_push_swap_error();
+	{
+		ft_putstr_fd("Error\n", 2);
+		ft_push_swap_error_alloc(array_numbers);
+	}
 	if (ft_check_sort(argc, array_numbers) == EXIT_FAILURE)
-		ft_push_swap_error();
+		ft_push_swap_error_alloc(array_numbers);
 }

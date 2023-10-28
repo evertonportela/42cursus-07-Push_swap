@@ -6,7 +6,7 @@
 /*   By: evportel <evportel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 20:30:58 by evportel          #+#    #+#             */
-/*   Updated: 2023/10/24 22:32:22 by evportel         ###   ########.fr       */
+/*   Updated: 2023/10/28 16:09:22 by evportel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ typedef struct s_stack_pack
 }	t_stack_pack;
 
 void	ft_push_swap_error(void);
+void	ft_push_swap_error_alloc(int *array);
 int		ft_valid_args(int length, char **argv);
 void	ft_receive_inputs(int length, char **argv, int *array_numbers);
 int		*ft_get_start_index(int length, int *array_number);

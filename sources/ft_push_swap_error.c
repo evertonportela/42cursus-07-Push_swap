@@ -6,7 +6,7 @@
 /*   By: evportel <evportel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 10:45:00 by evportel          #+#    #+#             */
-/*   Updated: 2023/10/27 22:12:01 by evportel         ###   ########.fr       */
+/*   Updated: 2023/10/28 16:08:42 by evportel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,11 @@
 void	ft_push_swap_error(void)
 {
 	ft_putstr_fd("Error\n", 2);
+	exit(EXIT_FAILURE);
+}
+
+void	ft_push_swap_error_alloc(int *array)
+{
+	free(array);
 	exit(EXIT_FAILURE);
 }
