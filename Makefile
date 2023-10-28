@@ -6,7 +6,7 @@
 #    By: evportel <evportel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/04 22:04:00 by evportel          #+#    #+#              #
-#    Updated: 2023/10/18 19:52:16 by evportel         ###   ########.fr        #
+#    Updated: 2023/10/27 22:13:07 by evportel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ RESET	=	\033[0m
 # FLAGS MANDATORY ************************************************************ #
 NAME		=	push_swap
 CC			=	cc
-FLAGS		=	-Wall -Wextra -Werror
+FLAGS		=	-Wall -Wextra -Werror -O3 -g3
 LIBFT		=	-L ./libft -lft
 
 SRC			=	${addprefix sources/, ft_print_stack.c} \
@@ -63,7 +63,7 @@ ${NAME}:	${OBJ} | mylibft
 			@printf "${BLUE}All libft objects have been created!${RESET}\n"
 			@printf "${BLUE}${NAME} objects have been created!${RESET}\n"
 			${CC} ${FLAGS} -o ${NAME} ${OBJ} ${LIBFT} ${HEADER}
-			@printf "${GREEN}${NAME} - Compilado com sucesso!${RESET}\n"
+			@printf "${GREEN}${NAME} - Compiled successfully!${RESET}\n"
 
 
 
@@ -86,8 +86,8 @@ norm:
 			norminette
 
 valgrind:	
-			valgrind -s --leak-check=yes --track-origins=yes ./push_swap 2 1 3 6 5 8 9
-#			valgrind -s --leak-check=yes ./push_swap 2 1 3 6
+			valgrind -s --leak-check=yes --track-origins=yes ./push_swap 2 1 3 --A 9
+#			valgrind -s --leak-check=yes --track-origins=yes ./push_swap 2 1 3 6 5 8 9
 
 visu:
 			./visualizer/build/bin/visualizer
