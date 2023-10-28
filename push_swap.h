@@ -6,7 +6,7 @@
 /*   By: evportel <evportel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 20:30:58 by evportel          #+#    #+#             */
-/*   Updated: 2023/10/28 16:09:22 by evportel         ###   ########.fr       */
+/*   Updated: 2023/10/28 17:24:30 by evportel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # define INT_MIN -2147483647
 # define INT_MAX 2147483647
 
-# include "./libft/libft.h"		/* libtf */
+// # include "./libft/libft.h"		/* libtf */
 # include "stdlib.h"			/* EXIT_SUCCESS */
 # include "unistd.h"			/* malloc, free */
 
@@ -59,6 +59,8 @@ void	ft_reverse_rotate_b(t_stack_pack *pack);
 void	ft_push_swap_short(t_stack_pack *pack);
 void	ft_clean_project(t_stack_pack *pack, int *array_num, int *start_index,
 			char **array_bin);
-void	ft_print_stack(int *stack, int size);
+void	ft_putstr_fd(char *s, int fd);
+int		ft_atoi(const char *nptr);
+int		ft_isdigit(int c);
 
 #endif

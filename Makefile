@@ -6,7 +6,7 @@
 #    By: evportel <evportel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/04 22:04:00 by evportel          #+#    #+#              #
-#    Updated: 2023/10/28 15:46:55 by evportel         ###   ########.fr        #
+#    Updated: 2023/10/28 17:24:57 by evportel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,9 +25,10 @@ CC			=	cc
 FLAGS		=	-Wall -Wextra -Werror -O3
 LIBFT		=	-L ./libft -lft
 
-SRC			=	${addprefix sources/, ft_print_stack.c} \
+SRC			=	${addprefix sources/, ft_atoi.c} \
 				${addprefix sources/, ft_clean_struct.c} \
 				${addprefix sources/, ft_get_start_index.c} \
+				${addprefix sources/, ft_isdigit.c} \
 				${addprefix sources/, ft_make_binaries.c} \
 				${addprefix sources/, ft_push_a.c} \
 				${addprefix sources/, ft_push_b.c} \
@@ -35,6 +36,7 @@ SRC			=	${addprefix sources/, ft_print_stack.c} \
 				${addprefix sources/, ft_push_swap_list_operations.c} \
 				${addprefix sources/, ft_push_swap_short.c} \
 				${addprefix sources/, ft_push_swap.c} \
+				${addprefix sources/, ft_putstr_fd.c} \
 				${addprefix sources/, ft_receive_inputs.c} \
 				${addprefix sources/, ft_reverse_rotate_a.c} \
 				${addprefix sources/, ft_reverse_rotate_b.c} \
@@ -55,28 +57,39 @@ HEADER		=	-I ./
 
 all:		${NAME}
 
-mylibft:
-			@make -j21 -C ./libft/ --no-print-directory
+#mylibft:
+#			@make -j21 -C ./libft/ --no-print-directory
 #			@printf "${BLUE}All libft objects have been created!${RESET}\n"
 
-${NAME}:	${OBJ} | mylibft
-			@printf "${BLUE}All libft objects have been created!${RESET}\n"
+#${NAME}:	${OBJ} | mylibft
+#			@printf "${BLUE}All libft objects have been created!${RESET}\n"
+#			@printf "${BLUE}${NAME} objects have been created!${RESET}\n"
+#			${CC} ${FLAGS} -o ${NAME} ${OBJ} ${LIBFT} ${HEADER}
+#			@printf "${GREEN}${NAME} - Compiled successfully!${RESET}\n"
+
+${NAME}:	${OBJ}
 			@printf "${BLUE}${NAME} objects have been created!${RESET}\n"
-			${CC} ${FLAGS} -o ${NAME} ${OBJ} ${LIBFT} ${HEADER}
+			${CC} ${FLAGS} -o ${NAME} ${OBJ} ${HEADER}
 			@printf "${GREEN}${NAME} - Compiled successfully!${RESET}\n"
 
 
-
 # CLEANING RULES ************************************************************* #
+#clean:
+#			rm -fr ${OBJ}
+#			@printf "${MAGENTA}${NAME} project objects removed!${RESET}\n"
+#			@make clean -C ./libft/ --no-print-directory
+#			@printf "${MAGENTA}Libft objects removed!${RESET}\n"
 clean:
 			rm -fr ${OBJ}
 			@printf "${MAGENTA}${NAME} project objects removed!${RESET}\n"
-			@make clean -C ./libft/ --no-print-directory
-			@printf "${MAGENTA}Libft objects removed!${RESET}\n"
+
+#fclean:		clean
+#			rm -fr ${NAME}
+#			@make fclean -C ./libft/ --no-print-directory
+#			@printf "${RED}Executable ${NAME} removed!${RESET}\n"
 
 fclean:		clean
 			rm -fr ${NAME}
-			@make fclean -C ./libft/ --no-print-directory
 			@printf "${RED}Executable ${NAME} removed!${RESET}\n"
 
 re:			fclean ${NAME}
