@@ -6,7 +6,7 @@
 /*   By: evportel <evportel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 14:30:26 by evportel          #+#    #+#             */
-/*   Updated: 2023/05/01 15:21:37 by evportel         ###   ########.fr       */
+/*   Updated: 2023/11/01 20:06:13 by evportel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@ int	ft_isdigit(int c)
 {
 	if ((c >= '0' && c <= '9'))
 	{
-		return (1);
+		return (0);
 	}
 	else
 	{
-		return (0);
+		return (1);
 	}
 }
