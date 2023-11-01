@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: evportel <evportel@student.42.fr>          +#+  +:+       +#+         #
+#    By: mateus <mateus@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/04 22:04:00 by evportel          #+#    #+#              #
-#    Updated: 2023/10/28 17:24:57 by evportel         ###   ########.fr        #
+#    Updated: 2023/10/31 21:05:28 by mateus           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,8 @@ RESET	=	\033[0m
 # FLAGS MANDATORY ************************************************************ #
 NAME		=	push_swap
 CC			=	cc
-FLAGS		=	-Wall -Wextra -Werror -O3
+#FLAGS		=	-Wall -Wextra -Werror -O3
+FLAGS		=	-Wall -Wextra -Werror -g3
 LIBFT		=	-L ./libft -lft
 
 SRC			=	${addprefix sources/, ft_atoi.c} \
