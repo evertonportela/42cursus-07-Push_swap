@@ -6,7 +6,7 @@
 /*   By: evportel <evportel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 21:48:22 by evportel          #+#    #+#             */
-/*   Updated: 2023/11/01 20:47:10 by evportel         ###   ########.fr       */
+/*   Updated: 2023/11/01 21:23:15 by evportel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int	main(int argc, char **argv)
 
 	if (argc == 1)
 		exit(EXIT_FAILURE);
-	if (argc < 2)
+	if (argc == 2)
 		ft_push_swap_error();
 	argc--;
 	argv++;
