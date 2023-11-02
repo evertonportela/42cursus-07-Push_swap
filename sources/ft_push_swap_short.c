@@ -6,7 +6,7 @@
 /*   By: evportel <evportel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 17:07:06 by evportel          #+#    #+#             */
-/*   Updated: 2023/10/24 22:42:05 by evportel         ###   ########.fr       */
+/*   Updated: 2023/11/01 21:05:38 by evportel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,11 @@ static int	ft_rotate_three_numbers(t_stack_pack *pack)
 
 void	ft_push_swap_short(t_stack_pack *pack)
 {
+	if (pack->length == 2)
+	{
+		ft_swap_a(pack);
+		return ;
+	}
 	if (pack->length > 3)
 	{
 		while (pack->stack_a->index != 0)
