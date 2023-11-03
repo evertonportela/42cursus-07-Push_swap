@@ -6,7 +6,7 @@
 /*   By: evportel <evportel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 11:16:52 by evportel          #+#    #+#             */
-/*   Updated: 2023/10/18 21:36:25 by evportel         ###   ########.fr       */
+/*   Updated: 2023/11/03 20:44:38 by evportel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,11 +93,12 @@ void	ft_receive_inputs(int argc, char **argv, int *array_numbers)
 	}
     if (ft_check_duplicates(argc, array_numbers) == EXIT_FAILURE) {
         // Verifica se há duplicatas nos números. Se encontradas, exibe uma mensagem de erro.
-        ft_push_swap_error();
+        ft_putstr_fd("Error\n", 2);
+		ft_push_swap_error_alloc(array_numbers);
     }
 
     if (ft_check_sort(argc, array_numbers) == EXIT_FAILURE) {
         // Verifica se os números não estão em ordem. Se não estiverem, exibe uma mensagem de erro.
-        ft_push_swap_error();
+        ft_push_swap_error_alloc(array_numbers);
     }
 }
