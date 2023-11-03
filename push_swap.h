@@ -6,7 +6,7 @@
 /*   By: evportel <evportel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 20:30:58 by evportel          #+#    #+#             */
-/*   Updated: 2023/10/28 17:24:30 by evportel         ###   ########.fr       */
+/*   Updated: 2023/11/02 21:13:28 by evportel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # define INT_MIN -2147483647
 # define INT_MAX 2147483647
 
-// # include "./libft/libft.h"		/* libtf */
 # include "stdlib.h"			/* EXIT_SUCCESS */
 # include "unistd.h"			/* malloc, free */
 
