@@ -6,7 +6,7 @@
 /*   By: evportel <evportel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 21:48:22 by evportel          #+#    #+#             */
-/*   Updated: 2023/10/18 20:47:12 by evportel         ###   ########.fr       */
+/*   Updated: 2023/11/02 21:43:23 by evportel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,17 +72,22 @@ int	main(int argc, char **argv)
 		// Se não houver argumentos de linha de comando, sai com erro.
 		exit(EXIT_FAILURE);
     }
+
+	if (argc == 2)
+		ft_push_swap_error();
+
 	// Decrementa a contagem de argumentos e avança o ponteiro de argumentos.
 	argc--;
 	argv++;
+
+	// Função para validar os argumentos.
+	ft_valid_args(argc, argv);
 
 	// Aloca memória para o array de números e valida os argumentos de entrada.
 	array_numbers = malloc (argc * sizeof(int));
 	if (array_numbers == NULL)
 		exit(EXIT_FAILURE);
-	
-	// Função para validar os argumentos.
-	ft_valid_args(argc, argv);
+
     
 	// Recebe os números de entrada e preenche o array 'array_numbers'.
     ft_receive_inputs(argc, argv, array_numbers);

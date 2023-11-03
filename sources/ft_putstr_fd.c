@@ -1,30 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: evportel <evportel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/16 10:10:14 by evportel          #+#    #+#             */
-/*   Updated: 2023/05/17 10:26:21 by evportel         ###   ########.fr       */
+/*   Created: 2023/05/15 18:20:55 by evportel          #+#    #+#             */
+/*   Updated: 2023/11/02 21:41:42 by evportel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-void	ft_putnbr_fd(int n, int fd)
+static size_t	ft_strlen(const char *s)
 {
-	long int	nbr;
+	unsigned long int	length;
 
-	nbr = n;
-	if (nbr < 0)
+	length = 0;
+	while (s[length])
 	{
-		ft_putchar_fd('-', fd);
-		nbr = nbr * -1;
+		length++;
 	}
-	if (nbr >= 10)
-	{
-		ft_putnbr_fd(nbr / 10, fd);
-	}
-	ft_putchar_fd(nbr % 10 + '0', fd);
+	return (length);
+}
+
+void	ft_putstr_fd(char *s, int fd)
+{
+	if (!s)
+		return ;
+	write(fd, s, ft_strlen(s));
 }

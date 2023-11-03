@@ -2,7 +2,7 @@ name: Workflow-with-norm-build-tests
 
 on:
   push:
-    branches: [ "vogsphere" ]
+    branches: [ "vogsphere", "master" ]
   pull_request:
     branches: [ "master" ]
 
@@ -16,7 +16,7 @@ jobs:
           working-directory: .
       steps:
         - name: Checkout
-          uses: actions/checkout@v3
+          uses: actions/checkout@v2
   
         - name: Setup Python
           uses: actions/setup-python@v2
@@ -39,7 +39,7 @@ jobs:
       run:
         working-directory: .
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v2
 
       - name: make
         run: make
@@ -52,7 +52,7 @@ jobs:
       run:
         working-directory: .
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v2
 
       - name: install Valgrind
         run: |
@@ -65,3 +65,24 @@ jobs:
           cd push_swap_tester
           export TERM=xterm-256color
           bash basic_test.sh
+  
+  Tester_Vinni-Cedraz:
+    name: Tester Vinni-Cedraz
+    needs: build
+    runs-on: ubuntu-20.04
+    defaults:
+      run:
+        working-directory: .
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: install Valgrind
+        run: |
+          sudo apt-get update
+          sudo apt-get install valgrind -y
+
+      - name: Cloning Tester Vinni-Cedraz
+        run: |
+          git clone https://github.com/Vinni-Cedraz/push_swap_averager.git
+          export TERM=xterm-256color
+          make -C push_swap_averager
