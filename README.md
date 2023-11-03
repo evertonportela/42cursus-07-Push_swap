@@ -1,10 +1,10 @@
 # 42cursus-07-Push_swap
 
-<!-- 
+
 <p align="center">
 	<a href="#"><img src="https://game.42sp.org.br/static/assets/achievements/push_swapn.png"/></a>
 </p>
--->
+
 
 Este projeto fará com que você classifique os dados em uma pilha, com um conjunto limitado de instruções, utilizando o menor número possível de ações. Para ter sucesso você terá que manipular vários tipos de algoritmos e escolher a solução mais adequada (entre muitas) para uma classificação otimizada dos dados.
 
