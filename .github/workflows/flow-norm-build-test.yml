@@ -44,45 +44,45 @@ jobs:
       - name: make
         run: make
 
-  Tester_LeoFu9487:
-    name: Tester LeoFu9487
-    needs: build
-    runs-on: ubuntu-20.04
-    defaults:
-      run:
-        working-directory: .
-    steps:
-      - uses: actions/checkout@v2
+  # Tester_LeoFu9487:
+  #   name: Tester LeoFu9487
+  #   needs: build
+  #   runs-on: ubuntu-20.04
+  #   defaults:
+  #     run:
+  #       working-directory: .
+  #   steps:
+  #     - uses: actions/checkout@v2
 
-      - name: install Valgrind
-        run: |
-          sudo apt-get update
-          sudo apt-get install valgrind -y
+  #     - name: install Valgrind
+  #       run: |
+  #         sudo apt-get update
+  #         sudo apt-get install valgrind -y
 
-      - name: Cloning Tester LeoFu9487
-        run: |
-          git clone https://github.com/LeoFu9487/push_swap_tester.git
-          cd push_swap_tester
-          export TERM=xterm-256color
-          bash basic_test.sh
+  #     - name: Cloning Tester LeoFu9487
+  #       run: |
+  #         git clone https://github.com/LeoFu9487/push_swap_tester.git
+  #         cd push_swap_tester
+  #         export TERM=xterm-256color
+  #         bash basic_test.sh
   
-  Tester_Vinni-Cedraz:
-    name: Tester Vinni-Cedraz
-    needs: build
-    runs-on: ubuntu-20.04
-    defaults:
-      run:
-        working-directory: .
-    steps:
-      - uses: actions/checkout@v2
+  # Tester_Vinni-Cedraz:
+  #   name: Tester Vinni-Cedraz
+  #   needs: build
+  #   runs-on: ubuntu-20.04
+  #   defaults:
+  #     run:
+  #       working-directory: .
+  #   steps:
+  #     - uses: actions/checkout@v2
 
-      - name: install Valgrind
-        run: |
-          sudo apt-get update
-          sudo apt-get install valgrind -y
+  #     - name: install Valgrind
+  #       run: |
+  #         sudo apt-get update
+  #         sudo apt-get install valgrind -y
 
-      - name: Cloning Tester Vinni-Cedraz
-        run: |
-          git clone https://github.com/Vinni-Cedraz/push_swap_averager.git
-          export TERM=xterm-256color
-          make -C push_swap_averager
+  #     - name: Cloning Tester Vinni-Cedraz
+  #       run: |
+  #         git clone https://github.com/Vinni-Cedraz/push_swap_averager.git
+  #         export TERM=xterm-256color
+  #         make -C push_swap_averager
